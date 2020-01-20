@@ -12,7 +12,7 @@ VENDOR_DIR="$BUILD_DIR/vendor"
 mkdir -p $VENDOR_DIR
 INSTALL_DIR="$VENDOR_DIR/imagemagick"
 mkdir -p $INSTALL_DIR
-IMAGE_MAGICK_VERSION="${IMAGE_MAGICK_VERSION:-6.8.9-9}"
+IMAGE_MAGICK_VERSION="${IMAGE_MAGICK_VERSION:-6.8.9.9-5}"
 CACHE_FILE="$CACHE_DIR/imagemagick-$IMAGE_MAGICK_VERSION.tar.gz"
 
 echo "First Argument: $1"
@@ -25,6 +25,7 @@ if [ ! -f $CACHE_FILE ]; then
   IMAGE_MAGICK_DIR="ImageMagick-$IMAGE_MAGICK_VERSION"
   # SSL cert used on imagemagick not recognized by heroku.
   IMAGE_MAGICK_URL="http://www.imagemagick.org/download/releases/$IMAGE_MAGICK_FILE"
+  IMAGE_MAGICK_URL="https://launchpad.net/ubuntu/+archive/primary/+sourcefiles/imagemagick/8:6.8.9.9-5/imagemagick_6.8.9.9.orig.tar.xz"
 
   echo "-----> Downloading ImageMagick from $IMAGE_MAGICK_URL"
   wget $IMAGE_MAGICK_URL -P $BUILD_DIR | indent
